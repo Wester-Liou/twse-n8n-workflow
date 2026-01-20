@@ -1,0 +1,920 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-19T07:01:02.329Z",
+    "createdAt": "2026-01-19T07:00:55.802Z",
+    "versionId": "c6ae56da-57a3-42d7-8798-eeb054b6a31d",
+    "workflowId": "DkGL4_GOa3lV871VGQVm4",
+    "nodes": [
+      {
+        "parameters": {
+          "operation": "upsert",
+          "schema": {
+            "__rl": true,
+            "value": "public",
+            "mode": "list",
+            "cachedResultName": "public"
+          },
+          "table": {
+            "__rl": true,
+            "value": "t187ap03_L",
+            "mode": "list",
+            "cachedResultName": "t187ap03_L"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "industry_category": "={{ $json['產業別'] }}",
+              "paid_in_capital": "={{ $json['實收資本額'] }}",
+              "private_placement_shares": "={{ $json['私募股數'] }}",
+              "preferred_shares": "={{ $json['特別股'] }}",
+              "financial_statement_type": "={{ $json['編制財務報表類型'] }}",
+              "outstanding_common_shares": "={{ $json['已發行普通股數或TDR原股發行股數'] }}",
+              "report_at": "={{ $json['出表日期'] }}",
+              "stock_code": "={{ $json['公司代號'] }}",
+              "company_name": "={{ $json['公司名稱'] }}",
+              "company_abbreviation": "={{ $json['公司簡稱'] }}",
+              "country_of_incorporation": "={{ $json['外國企業註冊地國'] }}",
+              "address": "={{ $json['住址'] }}",
+              "unified_business_no": "={{ $json['營利事業統一編號'] }}",
+              "chairman": "={{ $json['董事長'] }}",
+              "general_manager": "={{ $json['總經理'] }}",
+              "spokesperson": "={{ $json['發言人'] }}",
+              "spokesperson_title": "={{ $json['發言人職稱'] }}",
+              "deputy_spokesperson": "={{ $json['代理發言人'] }}",
+              "telephone": "={{ $json['總機電話'] }}",
+              "date_of_incorporation": "={{ $json['成立日期'] }}",
+              "date_of_listing": "={{ $json['上市日期'] }}",
+              "par_value_per_common_share": "={{ $json['普通股每股面額'] }}",
+              "stock_transfer_agent": "={{ $json['股票過戶機構'] }}",
+              "transfer_agent_tel": "={{ $json['過戶電話'] }}",
+              "transfer_agent_address": "={{ $json['過戶地址'] }}",
+              "cpa_firm": "={{ $json['簽證會計師事務所'] }}",
+              "cpa_1": "={{ $json['簽證會計師1'] }}",
+              "cpa_2": "={{ $json['簽證會計師2'] }}",
+              "english_abbreviation": "={{ $json['英文簡稱'] }}",
+              "english_mailing_address": "={{ $json['英文通訊地址'] }}",
+              "fax": "={{ $json['傳真機號碼'] }}",
+              "email": "={{ $json['電子郵件信箱'] }}",
+              "website": "={{ $json['網址'] }}"
+            },
+            "matchingColumns": [
+              "stock_code"
+            ],
+            "schema": [
+              {
+                "id": "report_at",
+                "displayName": "report_at",
+                "required": true,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "stock_code",
+                "displayName": "stock_code",
+                "required": true,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "company_name",
+                "displayName": "company_name",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false,
+                "removed": false
+              },
+              {
+                "id": "company_abbreviation",
+                "displayName": "company_abbreviation",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "country_of_incorporation",
+                "displayName": "country_of_incorporation",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "industry_category",
+                "displayName": "industry_category",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "address",
+                "displayName": "address",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "unified_business_no",
+                "displayName": "unified_business_no",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "chairman",
+                "displayName": "chairman",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "general_manager",
+                "displayName": "general_manager",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "spokesperson",
+                "displayName": "spokesperson",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "spokesperson_title",
+                "displayName": "spokesperson_title",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "deputy_spokesperson",
+                "displayName": "deputy_spokesperson",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "telephone",
+                "displayName": "telephone",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "date_of_incorporation",
+                "displayName": "date_of_incorporation",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "date_of_listing",
+                "displayName": "date_of_listing",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "par_value_per_common_share",
+                "displayName": "par_value_per_common_share",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "paid_in_capital",
+                "displayName": "paid_in_capital",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "private_placement_shares",
+                "displayName": "private_placement_shares",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "preferred_shares",
+                "displayName": "preferred_shares",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "financial_statement_type",
+                "displayName": "financial_statement_type",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "stock_transfer_agent",
+                "displayName": "stock_transfer_agent",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "transfer_agent_tel",
+                "displayName": "transfer_agent_tel",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "transfer_agent_address",
+                "displayName": "transfer_agent_address",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "cpa_firm",
+                "displayName": "cpa_firm",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "cpa_1",
+                "displayName": "cpa_1",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "cpa_2",
+                "displayName": "cpa_2",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "english_abbreviation",
+                "displayName": "english_abbreviation",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "english_mailing_address",
+                "displayName": "english_mailing_address",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "fax",
+                "displayName": "fax",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "email",
+                "displayName": "email",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "website",
+                "displayName": "website",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "outstanding_common_shares",
+                "displayName": "outstanding_common_shares",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          416,
+          0
+        ],
+        "id": "82a93145-bacd-452d-bfe7-e13375a603a9",
+        "name": "Insert or update rows in a table",
+        "credentials": {
+          "postgres": {
+            "id": "ZZBsyjJQplwRE8es",
+            "name": "Postgres Account By TWSE"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "triggerAtHour": 6
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          0,
+          0
+        ],
+        "id": "b5b72070-6908-4d0f-9111-130ac550d7e4",
+        "name": "每日 06:00 觸發"
+      },
+      {
+        "parameters": {
+          "url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          208,
+          0
+        ],
+        "id": "52b5cf4a-20d4-4a1b-bb2c-5da1738e6960",
+        "name": "Call TWSE Open API"
+      }
+    ],
+    "connections": {
+      "每日 06:00 觸發": {
+        "main": [
+          [
+            {
+              "node": "Call TWSE Open API",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call TWSE Open API": {
+        "main": [
+          [
+            {
+              "node": "Insert or update rows in a table",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wester Liou",
+    "name": "Version c6ae56da",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "c6ae56da-57a3-42d7-8798-eeb054b6a31d",
+  "connections": {
+    "每日 06:00 觸發": {
+      "main": [
+        [
+          {
+            "node": "Call TWSE Open API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call TWSE Open API": {
+      "main": [
+        [
+          {
+            "node": "Insert or update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-19T06:37:02.178Z",
+  "id": "DkGL4_GOa3lV871VGQVm4",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "上市公司基本資料",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "t187ap03_L",
+          "mode": "list",
+          "cachedResultName": "t187ap03_L"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "industry_category": "={{ $json['產業別'] }}",
+            "paid_in_capital": "={{ $json['實收資本額'] }}",
+            "private_placement_shares": "={{ $json['私募股數'] }}",
+            "preferred_shares": "={{ $json['特別股'] }}",
+            "financial_statement_type": "={{ $json['編制財務報表類型'] }}",
+            "outstanding_common_shares": "={{ $json['已發行普通股數或TDR原股發行股數'] }}",
+            "report_at": "={{ $json['出表日期'] }}",
+            "stock_code": "={{ $json['公司代號'] }}",
+            "company_name": "={{ $json['公司名稱'] }}",
+            "company_abbreviation": "={{ $json['公司簡稱'] }}",
+            "country_of_incorporation": "={{ $json['外國企業註冊地國'] }}",
+            "address": "={{ $json['住址'] }}",
+            "unified_business_no": "={{ $json['營利事業統一編號'] }}",
+            "chairman": "={{ $json['董事長'] }}",
+            "general_manager": "={{ $json['總經理'] }}",
+            "spokesperson": "={{ $json['發言人'] }}",
+            "spokesperson_title": "={{ $json['發言人職稱'] }}",
+            "deputy_spokesperson": "={{ $json['代理發言人'] }}",
+            "telephone": "={{ $json['總機電話'] }}",
+            "date_of_incorporation": "={{ $json['成立日期'] }}",
+            "date_of_listing": "={{ $json['上市日期'] }}",
+            "par_value_per_common_share": "={{ $json['普通股每股面額'] }}",
+            "stock_transfer_agent": "={{ $json['股票過戶機構'] }}",
+            "transfer_agent_tel": "={{ $json['過戶電話'] }}",
+            "transfer_agent_address": "={{ $json['過戶地址'] }}",
+            "cpa_firm": "={{ $json['簽證會計師事務所'] }}",
+            "cpa_1": "={{ $json['簽證會計師1'] }}",
+            "cpa_2": "={{ $json['簽證會計師2'] }}",
+            "english_abbreviation": "={{ $json['英文簡稱'] }}",
+            "english_mailing_address": "={{ $json['英文通訊地址'] }}",
+            "fax": "={{ $json['傳真機號碼'] }}",
+            "email": "={{ $json['電子郵件信箱'] }}",
+            "website": "={{ $json['網址'] }}"
+          },
+          "matchingColumns": [
+            "stock_code"
+          ],
+          "schema": [
+            {
+              "id": "report_at",
+              "displayName": "report_at",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "stock_code",
+              "displayName": "stock_code",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "company_name",
+              "displayName": "company_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "company_abbreviation",
+              "displayName": "company_abbreviation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "country_of_incorporation",
+              "displayName": "country_of_incorporation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "industry_category",
+              "displayName": "industry_category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "address",
+              "displayName": "address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "unified_business_no",
+              "displayName": "unified_business_no",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "chairman",
+              "displayName": "chairman",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "general_manager",
+              "displayName": "general_manager",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "spokesperson",
+              "displayName": "spokesperson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "spokesperson_title",
+              "displayName": "spokesperson_title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "deputy_spokesperson",
+              "displayName": "deputy_spokesperson",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "telephone",
+              "displayName": "telephone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "date_of_incorporation",
+              "displayName": "date_of_incorporation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "date_of_listing",
+              "displayName": "date_of_listing",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "par_value_per_common_share",
+              "displayName": "par_value_per_common_share",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "paid_in_capital",
+              "displayName": "paid_in_capital",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "private_placement_shares",
+              "displayName": "private_placement_shares",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "preferred_shares",
+              "displayName": "preferred_shares",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "financial_statement_type",
+              "displayName": "financial_statement_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "stock_transfer_agent",
+              "displayName": "stock_transfer_agent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "transfer_agent_tel",
+              "displayName": "transfer_agent_tel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "transfer_agent_address",
+              "displayName": "transfer_agent_address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "cpa_firm",
+              "displayName": "cpa_firm",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "cpa_1",
+              "displayName": "cpa_1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "cpa_2",
+              "displayName": "cpa_2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "english_abbreviation",
+              "displayName": "english_abbreviation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "english_mailing_address",
+              "displayName": "english_mailing_address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "fax",
+              "displayName": "fax",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "website",
+              "displayName": "website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "outstanding_common_shares",
+              "displayName": "outstanding_common_shares",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        416,
+        0
+      ],
+      "id": "82a93145-bacd-452d-bfe7-e13375a603a9",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "ZZBsyjJQplwRE8es",
+          "name": "Postgres Account By TWSE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b5b72070-6908-4d0f-9111-130ac550d7e4",
+      "name": "每日 06:00 觸發"
+    },
+    {
+      "parameters": {
+        "url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "52b5cf4a-20d4-4a1b-bb2c-5da1738e6960",
+      "name": "Call TWSE Open API"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "twse-n8n-workflow",
+  "repo_owner": "Wester-Liou",
+  "repo_path": "workflows/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-19T06:37:02.178Z",
+      "createdAt": "2026-01-19T06:37:02.178Z",
+      "role": "workflow:owner",
+      "workflowId": "DkGL4_GOa3lV871VGQVm4",
+      "projectId": "xSEk4qzxfACQ1iNP"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "updatedAt": "2026-01-20T02:16:07.664Z",
+      "createdAt": "2026-01-20T02:16:07.664Z",
+      "id": "7nfOV4ucrbNv06rE",
+      "name": "twse"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-20T02:17:10.293Z",
+  "versionId": "c6ae56da-57a3-42d7-8798-eeb054b6a31d"
+}
