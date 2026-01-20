@@ -1,0 +1,360 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-19T07:21:26.320Z",
+    "createdAt": "2026-01-19T07:21:23.530Z",
+    "versionId": "6b510237-6ee9-4f9c-8ffe-34c9105363cf",
+    "workflowId": "goKXx4R9TgQhGabp-48C2",
+    "nodes": [
+      {
+        "parameters": {
+          "operation": "upsert",
+          "schema": {
+            "__rl": true,
+            "mode": "list",
+            "value": "public"
+          },
+          "table": {
+            "__rl": true,
+            "value": "stock_day_avg_all",
+            "mode": "list",
+            "cachedResultName": "stock_day_avg_all"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "closing_price": "={{ $json.ClosingPrice }}",
+              "monthly_average_price": "={{ $json.MonthlyAveragePrice }}",
+              "date": "={{ $json.Date }}",
+              "code": "={{ $json.Code }}",
+              "name": "={{ $json.Name }}"
+            },
+            "matchingColumns": [
+              "date",
+              "code"
+            ],
+            "schema": [
+              {
+                "id": "date",
+                "displayName": "date",
+                "required": true,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "code",
+                "displayName": "code",
+                "required": true,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "name",
+                "displayName": "name",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "closing_price",
+                "displayName": "closing_price",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "monthly_average_price",
+                "displayName": "monthly_average_price",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          416,
+          0
+        ],
+        "id": "409b54c3-1426-4533-9908-4f3b3c305ecd",
+        "name": "Insert or update rows in a table",
+        "credentials": {
+          "postgres": {
+            "id": "ZZBsyjJQplwRE8es",
+            "name": "Postgres Account By TWSE"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "triggerAtHour": 6
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          0,
+          0
+        ],
+        "id": "21f47d51-d36c-434d-9252-73879bbbc94a",
+        "name": "每日 6:00 觸發"
+      },
+      {
+        "parameters": {
+          "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          208,
+          0
+        ],
+        "id": "bc2a8c32-c5d6-47fc-99d3-d5150a18d45d",
+        "name": "Call TWSE Open API"
+      }
+    ],
+    "connections": {
+      "每日 6:00 觸發": {
+        "main": [
+          [
+            {
+              "node": "Call TWSE Open API",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call TWSE Open API": {
+        "main": [
+          [
+            {
+              "node": "Insert or update rows in a table",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wester Liou",
+    "name": "Version 6b510237",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "6b510237-6ee9-4f9c-8ffe-34c9105363cf",
+  "connections": {
+    "每日 6:00 觸發": {
+      "main": [
+        [
+          {
+            "node": "Call TWSE Open API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call TWSE Open API": {
+      "main": [
+        [
+          {
+            "node": "Insert or update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-19T07:17:34.912Z",
+  "id": "goKXx4R9TgQhGabp-48C2",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "上市個股日收盤價及月平均價",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "stock_day_avg_all",
+          "mode": "list",
+          "cachedResultName": "stock_day_avg_all"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "closing_price": "={{ $json.ClosingPrice }}",
+            "monthly_average_price": "={{ $json.MonthlyAveragePrice }}",
+            "date": "={{ $json.Date }}",
+            "code": "={{ $json.Code }}",
+            "name": "={{ $json.Name }}"
+          },
+          "matchingColumns": [
+            "date",
+            "code"
+          ],
+          "schema": [
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "code",
+              "displayName": "code",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "closing_price",
+              "displayName": "closing_price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "monthly_average_price",
+              "displayName": "monthly_average_price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        416,
+        0
+      ],
+      "id": "409b54c3-1426-4533-9908-4f3b3c305ecd",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "ZZBsyjJQplwRE8es",
+          "name": "Postgres Account By TWSE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "21f47d51-d36c-434d-9252-73879bbbc94a",
+      "name": "每日 6:00 觸發"
+    },
+    {
+      "parameters": {
+        "url": "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "bc2a8c32-c5d6-47fc-99d3-d5150a18d45d",
+      "name": "Call TWSE Open API"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "twse-n8n-workflow",
+  "repo_owner": "Wester-Liou",
+  "repo_path": "workflows/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-19T07:17:34.912Z",
+      "createdAt": "2026-01-19T07:17:34.912Z",
+      "role": "workflow:owner",
+      "workflowId": "goKXx4R9TgQhGabp-48C2",
+      "projectId": "xSEk4qzxfACQ1iNP"
+    }
+  ],
+  "staticData": null,
+  "tags": [
+    {
+      "updatedAt": "2026-01-20T02:16:07.664Z",
+      "createdAt": "2026-01-20T02:16:07.664Z",
+      "id": "7nfOV4ucrbNv06rE",
+      "name": "twse"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-20T02:17:04.222Z",
+  "versionId": "6b510237-6ee9-4f9c-8ffe-34c9105363cf"
+}
