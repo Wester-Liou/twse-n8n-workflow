@@ -1,0 +1,404 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-19T07:41:44.609Z",
+    "createdAt": "2026-01-19T07:41:42.483Z",
+    "versionId": "8a0fb698-bcf2-42f4-a82f-13104e777f0c",
+    "workflowId": "P9fNqsHs1d6pZQ7C",
+    "nodes": [
+      {
+        "parameters": {
+          "operation": "upsert",
+          "schema": {
+            "__rl": true,
+            "mode": "list",
+            "value": "public"
+          },
+          "table": {
+            "__rl": true,
+            "value": "mi_index",
+            "mode": "list",
+            "cachedResultName": "mi_index"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "date": "={{ $json['日期'] }}",
+              "index": "={{ $json['指數'] }}",
+              "closing_index": "={{ $json['收盤指數'] }}",
+              "change": "={{ $json['漲跌'] }}",
+              "point_change": "={{ $json['漲跌點數'].replace(/,/g, '') }}",
+              "percentage_change": "={{ $json['漲跌百分比'].replace(/,/g, '') }}",
+              "special_handling_note": "={{ $json['特殊處理註記'] }}"
+            },
+            "matchingColumns": [
+              "date",
+              "index"
+            ],
+            "schema": [
+              {
+                "id": "date",
+                "displayName": "date",
+                "required": true,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "index",
+                "displayName": "index",
+                "required": true,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "closing_index",
+                "displayName": "closing_index",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "change",
+                "displayName": "change",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "point_change",
+                "displayName": "point_change",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "percentage_change",
+                "displayName": "percentage_change",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "number",
+                "canBeUsedToMatch": false
+              },
+              {
+                "id": "special_handling_note",
+                "displayName": "special_handling_note",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          416,
+          0
+        ],
+        "id": "9d27cf9f-6e35-4c3b-8a6f-904ecaccea09",
+        "name": "Insert or update rows in a table",
+        "credentials": {
+          "postgres": {
+            "id": "ZZBsyjJQplwRE8es",
+            "name": "Postgres Account By TWSE"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "triggerAtHour": 6
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          0,
+          0
+        ],
+        "id": "bb9d42c5-7015-415f-a83f-94809e478adc",
+        "name": "每日 6:00 觸發"
+      },
+      {
+        "parameters": {
+          "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          208,
+          0
+        ],
+        "id": "72474851-bc91-42f7-b4b1-551c9e283027",
+        "name": "Call TWSE Open API"
+      }
+    ],
+    "connections": {
+      "每日 6:00 觸發": {
+        "main": [
+          [
+            {
+              "node": "Call TWSE Open API",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call TWSE Open API": {
+        "main": [
+          [
+            {
+              "node": "Insert or update rows in a table",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Wester Liou",
+    "name": "Version 8a0fb698",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "8a0fb698-bcf2-42f4-a82f-13104e777f0c",
+  "connections": {
+    "每日 6:00 觸發": {
+      "main": [
+        [
+          {
+            "node": "Call TWSE Open API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call TWSE Open API": {
+      "main": [
+        [
+          {
+            "node": "Insert or update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-19T07:38:38.103Z",
+  "id": "P9fNqsHs1d6pZQ7C",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "每日收盤行情-大盤統計資訊",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "mi_index",
+          "mode": "list",
+          "cachedResultName": "mi_index"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $json['日期'] }}",
+            "index": "={{ $json['指數'] }}",
+            "closing_index": "={{ $json['收盤指數'] }}",
+            "change": "={{ $json['漲跌'] }}",
+            "point_change": "={{ $json['漲跌點數'].replace(/,/g, '') }}",
+            "percentage_change": "={{ $json['漲跌百分比'].replace(/,/g, '') }}",
+            "special_handling_note": "={{ $json['特殊處理註記'] }}"
+          },
+          "matchingColumns": [
+            "date",
+            "index"
+          ],
+          "schema": [
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "index",
+              "displayName": "index",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "closing_index",
+              "displayName": "closing_index",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "change",
+              "displayName": "change",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "point_change",
+              "displayName": "point_change",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "percentage_change",
+              "displayName": "percentage_change",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "special_handling_note",
+              "displayName": "special_handling_note",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        416,
+        0
+      ],
+      "id": "9d27cf9f-6e35-4c3b-8a6f-904ecaccea09",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "ZZBsyjJQplwRE8es",
+          "name": "Postgres Account By TWSE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bb9d42c5-7015-415f-a83f-94809e478adc",
+      "name": "每日 6:00 觸發"
+    },
+    {
+      "parameters": {
+        "url": "https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "72474851-bc91-42f7-b4b1-551c9e283027",
+      "name": "Call TWSE Open API"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "twse-n8n-workflow",
+  "repo_owner": "Wester-Liou",
+  "repo_path": "workflows/",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-19T07:38:38.103Z",
+      "createdAt": "2026-01-19T07:38:38.103Z",
+      "role": "workflow:owner",
+      "workflowId": "P9fNqsHs1d6pZQ7C",
+      "projectId": "xSEk4qzxfACQ1iNP"
+    }
+  ],
+  "staticData": {
+    "node:每日 6:00 觸發": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "updatedAt": "2026-01-20T02:16:07.664Z",
+      "createdAt": "2026-01-20T02:16:07.664Z",
+      "id": "7nfOV4ucrbNv06rE",
+      "name": "twse"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-20T02:16:48.088Z",
+  "versionId": "8a0fb698-bcf2-42f4-a82f-13104e777f0c"
+}
